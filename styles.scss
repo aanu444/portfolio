@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+@mixin header-font{
+    font-family: 'Acme', sans-serif;
+}
+
+@mixin text-font{
+    font-family: 'Oswald', sans-serif;
+}
+@mixin flex{
+    display:flex;
+    flex-flow:row nowrap;
+}
+
+*{
+    color:#ffffff;
+
+    ::before,::after{
+        box-sizing:border-box;
+        margin:0;
+    }
+}
+
+body{
+    background:url("images/background.jpg") no-repeat;
+    background-size:cover;
+    font-size:1rem;
+}
+
+div{
+    border:0px solid white;
+}
+
+.nav{
+    @include flex;
+    min-height:100px;
+    .logo{
+        flex-basis:20%;
+
+        img{
+            width:40%;
+        }
+    }
+
+    .links{
+        flex-basis:80%;
+
+        #nav-bar{
+            display:none;
+        }
+
+        .links-content{
+            display:none;
+        }
+
+        #links-lg{
+            list-style-type:none;
+
+            li{
+                display:inline;
+
+                
+
+                a{
+                    text-decoration:none;
+                    @include text-font;
+                    margin-left:100px;
+                    font-size:1.2rem;
+                }
+            }
+
+            li:first-child{
+                margin-left:80px;
+            }
+        }
+    }
+
+    .text{
+        flex-basis:60%;
+
+        h1{
+           @include header-font;
+           text-align:center;
+           font-size:2.5rem; 
+           margin-top:120px;
+        }
+
+        p{
+            @include text-font;
+            text-align:center;
+            font-size:1.5rem;
+            margin-right:65px;
+            margin-left:65px;
+        }
+
+        button{
+            @include text-font;
+            background-color:#dd99dd;
+            font-weight:bold;
+            padding:12px;
+            border:1px solid #dd99dd;
+            display:block;
+            font-size:1.2rem;
+            margin-left:auto;
+            margin-right:auto;
+
+            a{
+                color:#000000;
+                text-decoration:none;
+            }
+        }
+
+        #contact{
+            text-decoration:none;
+            display:block;
+            @include text-font;
+            font-weight:bold;
+            font-size:1.5rem;
+            text-align:center;
+        }
+
+    }
+    
+    .image{
+        flex-basis:40%;
+
+        img{
+            width:80%;
+            display:block;
+            border-radius:50%;
+            object-fit:cover;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top:20px;
+            filter: drop-shadow(5px 5px 5px #000000);
+        }
+
+        span{
+            display:block;
+            text-align:center;
+            @include text-font;
+            font-weight:bolder;
+            margin-left:20px;
+            margin-right:20px;
+            margin-top:15px;
+            font-size:1.5rem;
+            border:2px solid #ffffff;
+            color:#000000;
+            background-color:#ffffff;
+        }
+
+    }
+
+    .footer{
+        flex-basis:100%;
+
+        p{
+            text-align:center;
+            font-size:1.5rem;
+            font-weight:bold;
+            @include text-font;
+        }
+    }
+   
+}
+
+@media only screen and (max-width:767px){
+    div{
+        border:0px solid #ffffff;
+    }
+
+    .nav{
+        flex-flow:row wrap;
+
+        .logo{
+            flex-basis:100%;
+
+            img{
+                width:20%;
+                display:block;
+                margin-left:auto;
+                margin-right:auto;
+            }
+        }
+
+        .links{
+            flex-basis:100%;
+            min-height:50px;
+            background-color:rgba(225, 225, 225, 0.6);
+            position:relative;
+            display:inline-flex;
+            box-shadow: 2px 2px 8px grey;
+
+            #nav-bar{
+                display:block;
+                width:70%;
+                height:30px;
+                margin-top:10px;
+                margin-left:auto;
+                margin-right:auto;
+            }
+
+            #links-lg{
+                display:none;
+            }
+        
+            .links-content{
+                display:none;
+                position:absolute;
+                min-width:100%;
+                z-index:1;
+                min-height:200px;
+                margin-top:50px;
+                background-color:#ffffff;
+
+
+                #links-sm{
+                list-style-type:none;
+                @include text-font;
+                font-size:1.5rem;
+                margin:0 auto;
+
+                
+                   li{
+                    display:block;
+                    text-align:center;
+
+                    a{
+                        text-decoration:none;
+                        color:#000000;
+                        font-weight:bolder;
+                        margin-top:20px;
+                    }
+
+                    a:hover{
+                        background-color:#dd99dd;
+                    }
+                }
+                  
+                }
+            }
+        }
+
+        .links:hover .links-content{
+            display:flex;
+            cursor:pointer;
+        }
+
+        .text{
+            flex-basis:100%;
+
+            p{
+                font-size:1.2rem;
+                margin-left:40px;
+                margin-right:40px;
+            }
+        }
+
+        .image{
+            flex-basis:100%;
+
+            img{
+                width:40%;
+                min-height:200px;
+            }
+
+            span{
+                font-size:1rem;
+               
+            }
+        }
+
+        .footer{
+            p{
+                font-weight:lighter;
+                font-size:1rem;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width: 932px){
+   div{
+       border:0px solid #ffffff;
+   }
+
+   .nav{
+       .links{
+           #links-lg{
+            li:first-child{
+               margin-left:-50px;
+                }
+            }
+       }
+   }
+}
